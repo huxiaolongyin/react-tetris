@@ -3,6 +3,7 @@ import * as reducerType from '../unit/reducerType';
 import Block from '../unit/block';
 import keyboard from './keyboard';
 
+// 下一个方块
 function nextBlock(next = getNextType()) {
   return {
     type: reducerType.NEXT_BLOCK,
@@ -10,13 +11,15 @@ function nextBlock(next = getNextType()) {
   };
 }
 
+// 移动方块
 function moveBlock(option) {
   return {
     type: reducerType.MOVE_BLOCK,
-    data: option.reset === true ? null : new Block(option),
+    data: option.reset === true ? null : new Block(option), // 三元表达式，如果真，为null；如果假，新建一个Block
   };
 }
 
+// 调整速度
 function speedStart(n) {
   return {
     type: reducerType.SPEED_START,
@@ -31,6 +34,7 @@ function speedRun(n) {
   };
 }
 
+// 初始行
 function startLines(n) {
   return {
     type: reducerType.START_LINES,

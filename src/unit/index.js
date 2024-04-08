@@ -28,7 +28,7 @@ const isFocus = () => {
 const unit = {
   getNextType() { // 随机获取下一个方块类型
     const len = blockType.length;
-    return blockType[Math.floor(Math.random() * len)];
+    return blockType[Math.floor(Math.random() * len)]; // floor向下取整，可以取到[0,6]
   },
   want(next, matrix) { // 方块是否能移到到指定位置
     const xy = next.xy;
