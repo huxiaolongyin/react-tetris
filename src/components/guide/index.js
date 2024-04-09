@@ -7,17 +7,17 @@ import { isMobile } from '../../unit';
 
 export default class Guide extends React.Component {
   constructor() {
-    super();
+    super(); // 初始化this，使得调用constructor()时，能够调用props
     this.state = {
       isMobile: isMobile(),
       QRCode: '',
     };
   }
-  componentWillMount() {
+  componentWillMount() { //显示二维码，移动端不显示
     if (this.state.isMobile) {
       return;
     }
-    QRCode.toDataURL(location.href, { margin: 1 })
+    QRCode.toDataURL(location.href, { margin: 1 }) 
         .then(dataUrl => this.setState({ QRCode: dataUrl }));
   }
   shouldComponentUpdate(state) {
